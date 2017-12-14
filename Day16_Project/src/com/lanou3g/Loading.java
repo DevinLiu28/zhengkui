@@ -4,7 +4,8 @@ import com.lanou3g.exceptions.LoginName;
 import com.lanou3g.exceptions.LoginNoMatching;
 import com.lanou3g.exceptions.LoginNoPhoneNum;
 import com.lanou3g.exceptions.LoginPassWordTooEasy;
-import com.lanou3g.users.ChickUser;
+import com.lanou3g.game.Score;
+import com.lanou3g.game.SpeedGame;
 import com.lanou3g.users.UserOperate;
 import com.lanou3g.users.Users;
 import com.lanou3g.werther.ChickTheWerther;
@@ -12,15 +13,32 @@ import org.dom4j.DocumentException;
 
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Loading{
+    private static List DIFFICULT = new ArrayList();
+    private static List MIDDER= new ArrayList();
+    private static List EASY= new ArrayList();
     private static final String SING_IN = "1";
     private static final String LOG_IN = "2";
 
     public static void main(String[] args) throws IOException {
+
+        for (int i = 32; i <= 126; i++) {
+            DIFFICULT.add((char)i);
+        }
+        for (int i = 48; i <= 57; i ++) {
+            EASY.add((char)i);
+        }
+        for(int i = 97; i <= 122; i++) {
+            EASY.add((char)i);
+        }
+        MIDDER.addAll(EASY);
+        for(int i = 65; i <= 90; i++) {
+            MIDDER.add((char)i);
+        }
+
+
         Scanner sc = new Scanner(System.in);
         System.out.println("欢迎来到本系统;请根据提示输入相应信息");
         Users user = null;
@@ -108,10 +126,37 @@ public class Loading{
                         System.out.println("请输入正确的电话号码");
                     }
                     continue c;
-                case "3":
 
+                case "3":
+                    System.out.println("欢迎"+user.getName()+"来到手速游戏;请选择游戏难度:1-简单;2-普通;3-简单");
+                    String d = sc.nextLine();
+                    int time = 0;
+                    switch (d){
+                        case "1":
+                           time = SpeedGame.games(EASY,d);
+                            break ;
+                        case "2":
+                            time = SpeedGame.games(MIDDER,d);
+                            break ;
+                        case "3":
+                            time = SpeedGame.games(DIFFICULT,d);
+                            break ;
+                    }
+                    String url = "http://192.168.20.194:8080/day16/insert?username="+user.getName()+"&score="+time;
+                    String s = Score.pushScore(url);
+                    if("SUCCESS".equals(s)){
+                        System.out.println("上传成功");
+                    }
+                    Score.showFirst();
                     break;
+
+
+
                 case "4":
+                    Score.showTen();
+
+
+
                     break;
             }
 

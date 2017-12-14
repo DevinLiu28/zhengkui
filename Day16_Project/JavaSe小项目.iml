@@ -14,5 +14,8 @@
     <orderEntry type="library" name="commons-logging-1.2" level="project" />
     <orderEntry type="library" name="ezmorph-1.0.6" level="project" />
     <orderEntry type="library" name="json-lib-2.4-jdk15" level="project" />
+    <orderEntry type="library" name="xmlpull_1_0_5" level="project" />
+    <orderEntry type="library" name="xpp3_min-1.1.4c" level="project" />
+    <orderEntry type="library" name="xstream-1.4.7" level="project" />
   </component>
 </module>

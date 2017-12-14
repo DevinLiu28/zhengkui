@@ -1,85 +1,70 @@
 package com.lanou3g.game;
 
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 import java.util.regex.Pattern;
 
 public class SpeedGame {
 
+    public static int time = 0;
     public static void main(String[] args) {
-        games();
-    }
-    public static void games(){
 
-        System.out.println("请选择游戏难度:1-简单;2-适中;3-困难");
+       // games();
+    }
+    public static int games(List list,String difficulty){
         Scanner sc = new Scanner(System.in);
-        String select = sc.nextLine();
-        for (int i = 3; i >0; i--){
-            System.out.println("倒计时"+i+"秒后开始");
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        switch (select){
-            case "1":
-
-                break;
-
-
-
-
-            case "2":
-                String b = "QWERTYUIOPASDFGHJKLZXCVBNM1234567890";
-
-                break;
-
-
-
-
-            case "3":
-//                for (int i = 3; i >0; i--){
-//                    System.out.println("倒计时"+i+"秒后开始");
-//                    try {
-//                        Thread.sleep(1000);
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//
-//                }
-                String a = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890/+-*[]{})(_=)(*&^%$#@!~\\";
-                Random r = new Random();
-                StringBuffer sb = new StringBuffer();
-                while (true) {
+        Random r = new Random();
+//        for (int i = 3; i > 0; i--) {
+//            System.out.println("倒计时" + i + "秒后开始");
+//            try {
+//                Thread.sleep(1000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
+            StringBuffer sb = new StringBuffer();
+            switch (difficulty){
+                case "1":
+                    for (int j = 0; j < 10; j++) {
+                        sb.append(list.get(r.nextInt(list.size())));
+                    }
+                    break;
+                case "2":
+                    for (int j = 0; j < 20; j++) {
+                        sb.append(list.get(r.nextInt(list.size())));
+                    }
+                    break;
+                case "3":
                     for (int j = 0; j < 30; j++) {
-                        sb.append(a.charAt(r.nextInt(a.length())));
+                        sb.append(list.get(r.nextInt(list.size())));
                     }
-                    String word =("^.*[a-zA-Z]+.*$") ;
-                    String word1 = ("^.*[0-9]+.*$");
-                    String word2 = ("^.{30}");
-                    if (Pattern.matches(word,sb)&&Pattern.matches(word1,sb)&&Pattern.matches(word2,sb)){
-                        break;
-                    }
-                    sb.setLength(0);
-                }
-                System.out.println(sb);
-                break;
-
-
-
-
-
-
-
-
+                    break;
             }
 
+        System.out.println(sb);
 
-
-
-
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                time++;
+            }
+        };
+        timer.schedule(timerTask,0,1);
+        String answer = sc.nextLine();
+        while (answer.equals(sb)){
+            timer.cancel();
         }
-
+        System.out.println("你的成绩为:"+time);
+        return time;
 
     }
+
+
+//                    String word =("^.*[a-zA-Z]+.*$") ;
+//                    String word1 = ("^.*[0-9]+.*$");
+//                    String word2 = ("^.{30}");
+//                    if (Pattern.matches(word,sb)&&Pattern.matches(word1,sb)&&Pattern.matches(word2,sb)){
+//                        break;
+//                    }
+
 }

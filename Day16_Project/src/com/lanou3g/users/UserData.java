@@ -38,26 +38,11 @@ public class UserData {
     }
 
 
-//    public static void main(String[] args) throws IOException, DocumentException {
-//        Map<String,Users> map = new HashMap<>();
-//        map.put("23165",new Users("1","2","3"));
-//        write(map);
-//    }
+
 
     public static boolean write(Users u) throws IOException, DocumentException {
         read = saxReader.read("src/user.xml");
         Element users = read.getRootElement();
-//        a:for (String o : map.keySet()) {
-//            List<Element> elements = users.elements();
-//            for (Element element : elements) {
-//                List<Attribute> attributes = element.attributes();
-//                for (Attribute attribute : attributes) {
-//                    String value = attribute.getValue();
-//                    if(o.equals(value)){
-//                        continue a;
-//                    }
-//                }
-//            }
         List<Element> elements = users.elements();
         for (Element element : elements) {
             if (u.getUserName().equals(element.attribute("userName").getValue())) {

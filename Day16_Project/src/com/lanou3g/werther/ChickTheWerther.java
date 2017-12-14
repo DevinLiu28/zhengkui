@@ -29,7 +29,7 @@ public class ChickTheWerther {
                 in.close();
             }
         }
-        byte b[]=out.toByteArray( );
+        byte b[]=out.toByteArray();
         String str = new String(b,"utf-8");
         //System.out.println(str);
         JSONObject jsonObject = JSONObject.fromObject(str);
