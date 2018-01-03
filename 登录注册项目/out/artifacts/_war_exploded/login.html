@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <style type="text/css">
+        *{
+            margin: 0 auto;
+        }
+        .top{
+            min-width: 1200px;
+            max-width: 1920px;
+            height: 70px;
+            background-color: #ffffff;
+        }
+
+        .father{
+            max-width: 1108px;
+        }
+        .logo>a{
+            float: left;
+            width: 30px;
+            height: 30px;
+            padding-top: 15px;
+            padding-bottom: 25px;
+        }
+        .logo>a>img{
+            width: 30px;
+            height: 30px;
+        }
+        .tittle{
+            float: left;
+            margin-top: 19px;
+            margin-left: 10px;
+            font-size: 20px
+        }
+        .links{
+            float: right;
+            margin-top: 25px;
+        }
+        a.link{
+            color: #4477d0;
+        }
+
+        a:hover{
+            text-decoration: underline;
+        }
+        a{
+            text-decoration: none;
+        }
+        .split{
+            padding: 0 15px;
+            color: #d9d9d9;
+        }
+        .text{
+            min-width: 1200px;
+            max-width: 1920px;
+            padding-top: 74px;
+            background-color: #d9d9d9;
+        }
+        .text>.tbody{
+            max-width: 1180px;
+        }
+        .container{
+            display: table;
+            width: 1160px;
+            min-height: 600px;
+            padding-top: 26px;
+        }
+        .plogin{
+            width: 915px;
+        }
+        .img_plogin{
+            float: left;
+            width: 440px;
+            height: 330px;
+            margin-top: 60px;
+        }
+        .login_plogin{
+            float: right;
+            width: 405px;
+            height: 476px;
+            padding-top: 30px;
+            background: #fff;
+        }
+        .input1{
+            width: 285px;
+            height: 20px;
+            font-size: 14px;
+            line-height: 20px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        .checkbox{
+            width: 324px;
+            height: 20px;
+
+        }
+        #datetime{
+            position: absolute;
+            left: 90%;
+            top: 25px;
+            color: #4477d0 ;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div>
+
+<div class="top">
+
+    <div class="father">
+        <div class="logo">
+            <a href="#"><img src="img/wyy.png"></a>
+            <div class="tittle">用户登录</div>
+            <div class="links">
+                <a class="link" href="#">百度首页</a>
+                <span class="split"> | </span>
+                <a href="#" class="link">帮助文档</a>
+            </div>
+        </div>
+    </div>
+    <p id="datetime"></p>
+</div>
+
+
+
+
+<div class="text">
+    <div class="tbody">
+        <div class="container">
+            <div class="plogin">
+                <div class="img_plogin">
+                    <a href="#"><img src="img/denglutu.png" alt="">
+                    </a>
+                </div>
+                <div class="login_plogin">
+
+                    <form action="login" method="post" class="login_form" style="width: 325px;line-height: 1">
+                        <p style="padding: 10px 0 0;text-align: center; font-size: 20px">网易云登录</p>
+                        <div class="login_form_group" style="margin: 20px 0">
+                            <input onblur="onblurs(this)" onfocus="onfoucss(this)" class="input1" id="username" type="text" name="username" placeholder="请使用网易邮箱登录">
+
+                        </div>
+                        <div class="login_form_group" style="margin: 20px 0">
+                            <input onblur="onblurs(this)" onfocus="onfoucss(this)" class="input1" id="password" type="password" name="password" placeholder="登录密码">
+                        </div>
+                        <div style="height: 100px"></div>
+                        <div class="checkbox">
+                            <div class="checkboox1" style="float: left">
+                                <input type="checkbox" name="login" id="sever" checked>
+                                <label for="sever" style="font-size: 12px">同意并遵守</label>
+
+                            </div>
+                            <div class="checkboox2" style="float: right;padding-right: 20px">
+                                <input type="checkbox" name="login" id="nologin">
+                                <label for="nologin" style="font-size: 12px">15天免登录</label>
+                            </div>
+                        </div>
+                        <div style="margin: 14px 0">
+                            <button id="but" style="color: white;background-color: #387ee8;width: 325px;height: 50px;font-size: 16px;line-height: 50px;">
+                                登录
+                            </button>
+                            <!--<input type="submit" style="color: white;background-color: #387ee8;width: 325px;height: 50px;font-size: 16px;line-height: 50px;">-->
+                        </div>
+
+                        <div style="font-size: 12px">
+                            <div style="float: left">
+                                <p style="display: inline">还没有账号?</p>
+                                <a href="register.html">免费注册</a>
+                            </div>
+                            <div style="float: right">
+                                <a href="#">忘记密码</a>
+                            </div>
+
+
+                        </div>
+
+
+
+
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</body>
+
+<script type="text/javascript">
+    //点击提交按钮背景颜色发生改变
+    var but = document.getElementById("but");
+    but.onmousedown = function () {
+        but.style.backgroundColor = '#'+Math.floor(Math.random()*0xffffff).toString(16);
+    }
+
+    //inpur获得焦点;文字变大;红色边框
+    function onfoucss(ele) {
+        ele.style.fontSize = "25px";
+        ele.style.border = "1px solid red";
+
+    }
+    //input失去焦点;回到原样
+    function onblurs(ele) {
+        ele.style.fontSize = "14px";
+        ele.style.border = "1px solid #d9d9d9";
+    }
+
+    //左上角显示时间
+    var dateTime = document.getElementById("datetime");
+    var date = new Date();
+    var time = date.toLocaleTimeString();
+    dateTime.innerText = time;
+    setInterval(function () {
+        var date = new Date();
+        time = date.toLocaleTimeString();
+        dateTime.innerText = time;
+    },1000);
+</script>
+</html>

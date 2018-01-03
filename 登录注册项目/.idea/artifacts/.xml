@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="登录注册项目">
+    <output-path>$PROJECT_DIR$/out/artifacts/</output-path>
+    <root id="archive" name="登录注册项目.war">
+      <element id="artifact" artifact-name="登录注册项目:war exploded" />
+      <element id="module-output" name="登录注册项目" />
+    </root>
+  </artifact>
+</component>

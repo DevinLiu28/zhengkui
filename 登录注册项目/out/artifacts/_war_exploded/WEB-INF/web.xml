@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <jsp-config>
+        <jsp-property-group>
+            <description>html encoding</description>
+            <display-name>JSPConfiguration</display-name>
+            <url-pattern>*.html</url-pattern>
+            <el-ignored>true</el-ignored>
+            <page-encoding>UTF-8</page-encoding>
+            <scripting-invalid>false</scripting-invalid>
+            <include-prelude></include-prelude>
+            <include-coda></include-coda>
+        </jsp-property-group>
+    </jsp-config>
+</web-app>

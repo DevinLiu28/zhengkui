@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="day18">
+      <Current>1</Current>
+    </schema>
+    <schema id="3" parent="1" name="day20"/>
+    <schema id="4" parent="1" name="day21"/>
+    <schema id="5" parent="1" name="hw_sql"/>
+    <schema id="6" parent="1" name="information_schema"/>
+    <schema id="7" parent="1" name="mysql"/>
+    <schema id="8" parent="1" name="study"/>
+    <schema id="9" parent="1" name="test"/>
+    <schema id="10" parent="1" name="project">
+      <Visible>1</Visible>
+    </schema>
+    <table id="11" parent="10" name="book"/>
+    <table id="12" parent="10" name="users"/>
+    <column id="13" parent="11" name="bookName">
+      <Position>1</Position>
+      <DataType>varchar(55)|0</DataType>
+    </column>
+    <column id="14" parent="11" name="writer">
+      <Position>2</Position>
+      <DataType>varchar(55)|0</DataType>
+    </column>
+    <column id="15" parent="11" name="money">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="16" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="17" parent="12" name="username">
+      <Position>2</Position>
+      <DataType>varchar(55)|0</DataType>
+    </column>
+    <column id="18" parent="12" name="password">
+      <Position>3</Position>
+      <DataType>varchar(55)|0</DataType>
+    </column>
+    <key id="19" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

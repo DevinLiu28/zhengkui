@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<table></table>
+</body>
+<script type="text/javascript">
+    $.getJSON("http://localhost:8080/show",
+        function (data, status) {
+            if(status=="success"){
+
+                if(data!=null){
+                    $('table')
+                        .append($('<tr>')
+                            .append($('<th>').text("书名"))
+                            .append($('<th>').text("作者"))
+                            .append($('<th>').text("价格")));
+                    $.each(data,function (index,obj){
+                        $('table')
+                            .append($('<tr>')
+                                .append($('<td>').text(obj['bookName']))
+                                .append($('<td>').text(obj['writer']))
+                                .append($('<td>').text(obj['money'])));
+                    })
+                }
+            }
+        })
+</script>
+</html>
