@@ -20,16 +20,6 @@ public class RegisterServlet extends HttpServlet {
     private UserDao ud = new UserDao();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-//        String username = request.getParameter("username");
-//        String password = request.getParameter("password");
-//        if (username.equals("")||password.equals("")){
-//            RequestDispatcher dispatcher  = request.getRequestDispatcher("/register.html");
-//            dispatcher.forward(request,response);
-//        }else {
-//            User user = new User(null, username, password);
-//            ud.insert(user);
-//            response.sendRedirect("http://localhost:8080/login.html");
-//        }
         Map<String, String[]> map = request.getParameterMap();
         User user = new User();
         try {
@@ -38,10 +28,10 @@ public class RegisterServlet extends HttpServlet {
 
             if(user1==null){
                 //可以注册
-                if (user.getPassword()==null||user.getPassword().equals("")){
+                if (!(user.getUsername().equals(""))&&!(user.getPassword().equals(""))){
                     //注册成功
                     ud.insert(user);
-                    response.sendRedirect("http://localhost:8080/login.html");
+                    response.sendRedirect("http://localhost:8080/login1.jsp");
                     return;
                 }else {
                     //注册失败
@@ -49,7 +39,7 @@ public class RegisterServlet extends HttpServlet {
             }else {
                 //注册失败
             }
-            request.getRequestDispatcher("/register.html").forward(request,response);
+            request.getRequestDispatcher("/register.jsp").forward(request,response);
 
 
 

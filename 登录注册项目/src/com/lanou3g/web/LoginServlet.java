@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
                 if(u.getPassword().equals(user.getPassword())){
                     //登录成功
                     request.getSession().setAttribute("user",user);
-                    response.sendRedirect("http://localhost:8080/index.jsp");
+                    response.sendRedirect("http://localhost:8080/show");
                     return;
                 }else {
                     //登录失败

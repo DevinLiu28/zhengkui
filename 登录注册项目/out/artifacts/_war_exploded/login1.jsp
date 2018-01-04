@@ -8,12 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>登录</title>
     <script src="js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 <%@include file="login.html"%>
-
+<%--<jsp:include page="login.html"/>--%>
 </body>
 <script type="text/javascript">
     <%

@@ -14,7 +14,7 @@ import java.util.List;
 public class BookDao {
     private QueryRunner qr = new QueryRunner();
     public Book queryByBookName(String bookName){
-        String sql = "select * from book where username = ?";
+        String sql = "select * from book where bookName = ?";
         Connection conn = JdbcUtil.getConnection();
         Book book = null;
         try {

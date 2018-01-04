@@ -22,7 +22,10 @@ public class ShowBookServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         List<Book> books = bd.showAll();
-        JSONArray jsonArray = JSONArray.fromObject(books);
-        response.getWriter().write(jsonArray.toString());
+        request.setAttribute("books",books);
+        request.getRequestDispatcher("/index.jsp").forward(request,response);
+//        JSONArray jsonArray = JSONArray.fromObject(books);
+//        response.getWriter().write(jsonArray.toString());
+
     }
 }
