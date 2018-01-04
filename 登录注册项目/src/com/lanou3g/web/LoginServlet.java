@@ -43,11 +43,10 @@ public class LoginServlet extends HttpServlet {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
-
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        request.getSession().removeAttribute("user");
+        request.getRequestDispatcher("/login1.jsp").forward(request,response);
     }
 }

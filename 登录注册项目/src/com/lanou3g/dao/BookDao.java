@@ -34,14 +34,19 @@ public class BookDao {
     public List<Book> showAll(){
         String sql = "select * from book";
         Connection conn = JdbcUtil.getConnection();
-        Book book = null;
         try {
             List<Book> books = qr.query(
                     conn,
                     sql,
                     new BeanListHandler<>(Book.class)
             );
+            conn.close();
             return books;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

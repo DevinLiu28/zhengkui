@@ -18,7 +18,7 @@
       session.setAttribute("username",user.getUsername());
       out.write("登录成功");
       %>
-  <table style="border: 1px solid black;text-align: center"></table>
+  <table border="1" style="border: 1px solid black;text-align: center"></table>
       <%
     }else {
         out.write("请先登录");
@@ -29,7 +29,7 @@
     }
   %>
 
-  <input type = "button" name="exit" value="退出" onclick="location.href='login1.jsp'">
+  <input type = "button" name="exit" value="退出" onclick="location.href='/login'">
 
   </body>
 <script type="text/javascript">
